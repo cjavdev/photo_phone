@@ -25,3 +25,4 @@ end
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'figaro'
+gem 'thin'
