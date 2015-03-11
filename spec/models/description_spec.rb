@@ -13,5 +13,6 @@
 require 'rails_helper'
 
 RSpec.describe Description, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:author) }
+  it { should belong_to(:photo) }
 end

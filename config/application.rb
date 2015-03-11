@@ -21,7 +21,7 @@ module PhotoPhone
       s3_protocol: 'http',
       url: 's3_domain_url',
       path: 'images/:class/:id.:style.:extension',
-      s3_host_name: 'YOUR_HOST_HERE',
+      # s3_host_name: 'us-west-2',
       s3_credentials: {
         bucket: ENV['AWS_BUCKET'],
         access_key_id: ENV['AWS_ACCESS_KEY_ID'],
@@ -53,5 +53,12 @@ module PhotoPhone
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :patch, :options]
+      end
+    end
   end
 end
