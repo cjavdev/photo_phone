@@ -17,6 +17,7 @@ require 'rails_helper'
 RSpec.describe Photo, :type => :model do
   it { should have_many(:descriptions) }
   it { should belong_to(:photographer) }
+  it { should belong_to(:description) }
   it { should have_attached_file(:image) }
   it { should validate_attachment_content_type(:image).
        allowing('image/png', 'image/gif').

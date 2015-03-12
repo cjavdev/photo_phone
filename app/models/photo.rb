@@ -15,6 +15,7 @@
 class Photo < ActiveRecord::Base
   has_many :descriptions
   belongs_to :photographer, class_name: 'User'
+  belongs_to :description
 
   has_attached_file(
     :image,

@@ -6,11 +6,12 @@ module Api
 
     def next
       @photo = Photo.find(Photo.ids.sample)
-      render :show
+      render :show, locals: { show_descriptions: false }
     end
 
     def show
       @photo = Photo.find(params[:id])
+      render :show, locals: { show_descriptions: true }
     end
   end
 end

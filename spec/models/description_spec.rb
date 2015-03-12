@@ -15,4 +15,5 @@ require 'rails_helper'
 RSpec.describe Description, :type => :model do
   it { should belong_to(:author) }
   it { should belong_to(:photo) }
+  it { should have_many(:photos) }
 end
