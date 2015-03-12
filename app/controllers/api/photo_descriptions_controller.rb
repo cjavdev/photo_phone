@@ -1,5 +1,7 @@
 module Api
   class PhotoDescriptionsController < ApiController
+    before_action :require_user!
+
     def index
       @photos = Photo
         .includes(:descriptions)

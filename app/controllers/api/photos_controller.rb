@@ -1,5 +1,7 @@
 module Api
   class PhotosController < ApiController
+    before_action :require_user!
+
     def index
       @photos = Photo.order(id: :desc).limit(10)
     end

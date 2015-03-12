@@ -1,5 +1,7 @@
 module Api
   class DescriptionsController < ApiController
+    before_action :require_user!
+
     def index
       @descriptions = Description.order(id: :desc).limit(100)
       render json: @descriptions
